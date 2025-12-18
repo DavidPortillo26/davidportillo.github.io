@@ -510,6 +510,14 @@
       grid-template-columns: 1.1fr 0.9fr;
     }
 
+    .case.feature {
+      grid-column: 1 / -1;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 280px;
+      background: linear-gradient(135deg, rgba(244, 124, 84, 0.16), rgba(124, 240, 209, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
     .case-copy {
       padding: 18px 18px 18px 20px;
       display: flex;
@@ -682,7 +690,7 @@
         grid-template-columns: 1fr;
       }
       .cases { grid-template-columns: 1fr; }
-      .case, .case:nth-child(even) { grid-template-columns: 1fr; }
+      .case, .case:nth-child(even), .case.feature { grid-template-columns: 1fr; }
       .intro { grid-template-columns: 1fr; }
     }
   </style>
@@ -791,7 +799,7 @@
         </div>
       </div>
       <div class="cases">
-        <article class="case">
+        <article class="case feature">
           <div class="case-copy">
             <div class="meta">ML · Computer Vision · Backend</div>
             <h3>Well Log Digitizer</h3>
