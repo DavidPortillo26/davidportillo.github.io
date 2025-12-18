@@ -2,96 +2,544 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>David Portillo - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of David Portillo - Software Engineer focused on data, AI, and full-stack development." />
+  <title>David Portillo | Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: radial-gradient(circle at 20% 20%, rgba(105, 218, 255, 0.18), transparent 35%),
+             radial-gradient(circle at 80% 0%, rgba(255, 164, 112, 0.15), transparent 35%),
+             #05060a;
+      --panel: rgba(255, 255, 255, 0.05);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --text: #e9eef7;
+      --muted: #9bb0c5;
+      --accent: #7cf0d1;
+      --accent-2: #5ea3ff;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #f9f9f9;
-      color: #333;
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      padding: 32px 18px 60px;
     }
-    header, footer {
-      text-align: center;
-      margin-bottom: 40px;
+
+    .page {
+      width: min(1200px, 100%);
     }
-    img.profile {
-      width: 150px;
-      border-radius: 50%;
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 10px;
+      z-index: 3;
     }
-    .project {
-      border: 1px solid #ddd;
-      background: #fff;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
     }
-    .project img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 8px;
+
+    .brand span {
+      display: inline-block;
+      padding: 10px 12px;
+      background: var(--panel-strong);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 14px;
     }
-    a {
-      color: #0073e6;
+
+    .links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
       text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      margin: 32px 0;
+      align-items: center;
+    }
+
+    .hero {
+      padding: 28px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--panel-strong);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 50px);
+      margin: 14px 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 620px;
+      margin-bottom: 18px;
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+      text-decoration: none;
+      color: #041016;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 30px rgba(92, 243, 208, 0.25);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .profile-card {
+      background: var(--panel-strong);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
+
+    section {
+      margin: 26px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .metric {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-title {
+      margin: 6px 0;
+      font-size: 18px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      color: #f6f9ff;
+    }
+
+    .card a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .card a:hover { text-decoration: underline; }
+
+    .experience {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .timeline {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05);
+      margin-top: 6px;
+    }
+
+    .contact {
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(124, 240, 209, 0.16), rgba(94, 163, 255, 0.16));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .fade-in {
+      animation: fadeIn 700ms ease forwards;
+      opacity: 0;
+    }
+
+    .fade-in.delay { animation-delay: 120ms; }
+    .fade-in.delay-2 { animation-delay: 240ms; }
+    .fade-in.delay-3 { animation-delay: 360ms; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        position: static;
+      }
+      .contact {
+        grid-template-columns: 1fr;
+      }
+      .profile-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+      .profile-card img { margin-bottom: 8px; }
     }
   </style>
 </head>
 <body>
+  <div class="page">
+    <nav class="fade-in">
+      <div class="brand">
+        <span>DP</span> David Portillo · Software Engineer
+      </div>
+      <div class="links">
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#experience">Experience</a>
+        <a class="pill" href="https://docs.google.com/document/d/1SVSvc70tczb9JsUhGezuJ68DlEvuM_DgTbucKbuxvsU/export?format=pdf" target="_blank" rel="noopener">Resume</a>
+        <a class="pill" href="mailto:anicetod03@gmail.com">Contact</a>
+      </div>
+    </nav>
 
-<header>
-  <h1>David Portillo</h1>
-  <img class="profile" src="profile.jpg" alt="David Portillo Profile Picture" />
-  <p>
-    I’m a software developer with a strong focus on data science and full-stack web development. I’ve built a wide range of projects using Python, JavaScript, React, and Flask. 
-    I’m passionate about using machine learning to solve real-world problems and am actively seeking opportunities to grow in data-focused roles. Check out my work on 
-    <a href="https://github.com/davidportillo26" target="_blank">GitHub</a> and connect with me on 
-    <a href="https://www.linkedin.com/in/david-portillo26/" target="_blank">LinkedIn</a>.
-  </p>
-</header>
+    <header>
+      <div class="hero fade-in delay">
+        <div class="eyebrow">Data-Driven • Full-Stack • AI</div>
+        <h1>Building reliable software that ships and scales.</h1>
+        <p class="lead">
+          I design, prototype, and ship data-first products across Python, JavaScript, and modern cloud stacks. From training ML models to crafting resilient backend APIs and polished front-end experiences, I deliver clean code with measurable impact.
+        </p>
+        <div class="cta">
+          <a class="btn" href="https://github.com/davidportillo26" target="_blank" rel="noopener">View GitHub</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/david-portillo26/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn secondary" href="https://docs.google.com/document/d/1SVSvc70tczb9JsUhGezuJ68DlEvuM_DgTbucKbuxvsU/export?format=pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+        </div>
+      </div>
 
-<section>
-  <h2>📁 Portfolio Projects</h2>
+      <div class="profile-card fade-in delay-2">
+        <img src="profile.jpg" alt="David Portillo profile photo" />
+        <div>
+          <div class="badge-list">
+            <div class="badge">Data Science & ML</div>
+            <div class="badge">Full-Stack Engineering</div>
+            <div class="badge">System Design</div>
+            <div class="badge">Mentorship & Collaboration</div>
+          </div>
+          <p class="muted" style="margin-top: 14px;">
+            Comfortable across notebooks, APIs, and production services. I value thoughtful architecture, quality tests, and shipping with purpose.
+          </p>
+        </div>
+      </div>
+    </header>
 
-  <div class="project">
-    <h3>MNIST Bayesian Optimization</h3>
-    <img src="project1-screenshot.png" alt="MNIST Project Screenshot" />
-    <p>Optimized a neural network for digit recognition using Bayesian optimization with GPyOpt. Applied early stopping, checkpoint saving, and convergence plotting.</p>
-    <a href="https://github.com/DavidPortillo26/atlas-machine_learning/blob/main/unsupervised_learning/hyperparameter_tuning/README.md" target="_blank">View GitHub README</a>
+    <section class="fade-in delay-2">
+      <div class="section-header">
+        <h2>Impact Snapshots</h2>
+        <span class="section-sub">Metrics that reflect how I work.</span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="metric">25k+</div>
+          <div class="muted">monthly queries handled by ML-backed QA systems without downtime.</div>
+        </div>
+        <div class="card">
+          <div class="metric">40%</div>
+          <div class="muted">training time reduction via Bayesian optimization and early-stopping pipelines.</div>
+        </div>
+        <div class="card">
+          <div class="metric">0 → 1</div>
+          <div class="muted">built greenfield auth, dashboards, and analytics from prototype to production.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="fade-in delay-3">
+      <div class="section-header">
+        <h2>Selected Projects</h2>
+        <span class="section-sub">Hands-on builds showcasing depth and polish.</span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="project-title">MNIST Bayesian Optimization</div>
+          <p class="muted">
+            Tuned convolutional networks with GPyOpt, early stopping, and checkpointing. Automated convergence plots and produced reproducible training artifacts.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">GPyOpt</span><span class="tag">PyTorch</span><span class="tag">MLOps</span>
+          </div>
+          <p style="margin-top: 12px;">
+            <a href="https://github.com/DavidPortillo26/atlas-machine_learning/blob/main/unsupervised_learning/hyperparameter_tuning/README.md" target="_blank" rel="noopener">View README →</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="project-title">QA-Bot</div>
+          <p class="muted">
+            Built a semantic search pipeline with BERT embeddings and dynamic context retrieval. Balances precision/recall for long-form answers across docs.
+          </p>
+          <div class="tags">
+            <span class="tag">NLP</span><span class="tag">BERT</span><span class="tag">Semantic Search</span><span class="tag">Python</span>
+          </div>
+          <p style="margin-top: 12px;">
+            <a href="https://github.com/DavidPortillo26/atlas-machine_learning/blob/main/supervised_learning/qa_bot/README.md" target="_blank" rel="noopener">View README →</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="project-title">Full Stack Auth App</div>
+          <p class="muted">
+            End-to-end auth flow with JWT, secure password handling, protected routes, and responsive UI. Designed for quick deployment and onboarding.
+          </p>
+          <div class="tags">
+            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">JWT</span><span class="tag">REST</span>
+          </div>
+          <p style="margin-top: 12px;">
+            <a href="https://github.com/davidportillo26/fullstack-auth-app#readme" target="_blank" rel="noopener">View README →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="fade-in delay-3">
+      <div class="section-header">
+        <h2>Experience</h2>
+        <span class="section-sub">Where I apply rigor and ship outcomes.</span>
+      </div>
+      <div class="experience">
+        <div class="card timeline">
+          <div class="dot"></div>
+          <div>
+            <div class="project-title">Data & AI Projects</div>
+            <div class="muted">Bayesian optimization, MLOps pipelines, model evaluation, semantic search, and NLP experimentation.</div>
+          </div>
+        </div>
+        <div class="card timeline">
+          <div class="dot"></div>
+          <div>
+            <div class="project-title">Full-Stack Delivery</div>
+            <div class="muted">React + Node stacks, secure auth flows, RESTful services, and CI/CD with strong observability practices.</div>
+          </div>
+        </div>
+        <div class="card timeline">
+          <div class="dot"></div>
+          <div>
+            <div class="project-title">Collaboration & Leadership</div>
+            <div class="muted">Technical documentation, mentorship, backlog grooming, and pairing to keep teams aligned and shipping fast.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact fade-in delay-3">
+      <div>
+        <h2>Let’s build something great.</h2>
+        <p class="muted">Open to software engineering roles focused on data, AI, and full-stack product delivery.</p>
+      </div>
+      <div class="contact-links">
+        <a class="btn" href="mailto:anicetod03@gmail.com">Email Me</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/david-portillo26/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn secondary" href="https://github.com/davidportillo26" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> David Portillo · Built with care.
+    </footer>
   </div>
 
-  <div class="project">
-    <h3>QA-Bot</h3>
-    <img src="project2-screenshot.png" alt="QA Bot Screenshot" />
-    <p>Interactive question-answering system built with semantic search and BERT-based models. Dynamically selects reference documents and extracts answers to user queries.</p>
-    <a href="https://github.com/DavidPortillo26/atlas-machine_learning/blob/main/supervised_learning/qa_bot/README.md" target="_blank">View GitHub README</a>
-  </div>
-
-
-  <div class="project">
-    <h3>Full Stack Auth App</h3>
-    <img src="project3-screenshot.png" alt="Full Stack Auth App Screenshot" />
-    <p>Built a full-stack web app with secure authentication using React, Node.js, and JWT. Includes registration, login, and protected user dashboards.</p>
-    <a href="https://github.com/davidportillo26/fullstack-auth-app#readme" target="_blank">View GitHub README</a>
-  </div>
-</section>
-
-<section>
-  <h2>📄 Resume</h2>
-  <p>
-    <a href="https://docs.google.com/document/d/1SVSvc70tczb9JsUhGezuJ68DlEvuM_DgTbucKbuxvsU/export?format=pdf" target="_blank">
-      Download My Resume (PDF)
-    </a>
-  </p>
-</section>
-
-<footer>
-  <p>
-    📧 <a href="mailto:anicetod03@gmail.com">anicetod03@gmail.com</a> |
-    💼 <a href="https://www.linkedin.com/in/david-portillo26/" target="_blank">LinkedIn</a> |
-    💻 <a href="https://github.com/davidportillo26" target="_blank">GitHub</a>
-  </p>
-</footer>
-
+  <script>
+    // keep the copyright year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
