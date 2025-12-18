@@ -3,25 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of David Portillo - Software Engineer focused on data, AI, and full-stack development." />
-  <title>David Portillo | Software Engineer</title>
+  <meta name="description" content="Portfolio of David Portillo — software engineer and designer crafting bold, data-driven experiences." />
+  <title>David Portillo · Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: radial-gradient(circle at 20% 20%, rgba(105, 218, 255, 0.18), transparent 35%),
-             radial-gradient(circle at 80% 0%, rgba(255, 164, 112, 0.15), transparent 35%),
-             #05060a;
-      --panel: rgba(255, 255, 255, 0.05);
-      --panel-strong: rgba(255, 255, 255, 0.12);
-      --text: #e9eef7;
-      --muted: #9bb0c5;
-      --accent: #7cf0d1;
-      --accent-2: #5ea3ff;
-      --border: rgba(255, 255, 255, 0.08);
-      --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+      --bg: #060606;
+      --panel: #0f0e0c;
+      --panel-strong: #151310;
+      --sand: #f3dbc7;
+      --muted: #c0b3a6;
+      --line: #26221d;
+      --accent: #f47c54;
+      --accent-2: #7cf0d1;
       --radius: 18px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
     }
 
     * { box-sizing: border-box; }
@@ -29,518 +27,866 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: radial-gradient(circle at 14% 18%, rgba(244, 124, 84, 0.16), transparent 30%),
+                  radial-gradient(circle at 82% 8%, rgba(124, 240, 209, 0.18), transparent 28%),
+                  var(--bg);
+      color: var(--sand);
+      font-family: "Manrope", system-ui, -apple-system, sans-serif;
       line-height: 1.6;
       display: flex;
       justify-content: center;
-      padding: 32px 18px 60px;
+      padding: 26px 18px 70px;
     }
 
-    .page {
+    a { color: inherit; }
+
+    .wrap {
       width: min(1200px, 100%);
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 18px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
+    .nav {
       position: sticky;
-      top: 10px;
-      z-index: 3;
+      top: 12px;
+      z-index: 6;
+      background: rgba(15, 14, 12, 0.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      display: grid;
+      grid-template-columns: 1.1fr auto;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
     }
 
-    .brand span {
-      display: inline-block;
-      padding: 10px 12px;
-      background: var(--panel-strong);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      color: var(--accent);
+    .stamp {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(140deg, rgba(244, 124, 84, 0.22), rgba(124, 240, 209, 0.2));
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-stack a {
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-stack span {
+      color: var(--muted);
       font-size: 14px;
     }
 
-    .links {
+    .nav-links {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .pill {
       padding: 10px 14px;
       border-radius: 999px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.03);
-      color: var(--text);
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 600;
       font-size: 14px;
-      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease;
+      letter-spacing: 0.03em;
+      transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
     }
 
     .pill:hover {
-      transform: translateY(-2px);
       border-color: rgba(255, 255, 255, 0.35);
-      color: #fff;
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
     }
 
-    header {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      margin: 32px 0;
-      align-items: center;
+    .progress {
+      position: relative;
+      height: 3px;
+      grid-column: 1 / -1;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 120ms ease-out;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 42px 34px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
 
     .hero {
-      padding: 28px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 30px;
+      min-height: 520px;
     }
 
-    .eyebrow {
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(0deg, rgba(255, 255, 255, 0.02), transparent 60%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 28px),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 28px);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .topline {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       padding: 8px 12px;
       border-radius: 999px;
       background: var(--panel-strong);
-      border: 1px solid var(--border);
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 0.3px;
+      border: 1px solid var(--line);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
     }
 
     h1 {
-      font-size: clamp(36px, 5vw, 50px);
-      margin: 14px 0 10px;
-      letter-spacing: -0.02em;
+      margin: 0;
+      font-size: clamp(38px, 7vw, 64px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+
+    h1 .symbol {
+      display: inline-block;
+      width: 36px;
+      height: 10px;
+      background: var(--accent);
+      margin: 0 12px;
+      position: relative;
+    }
+
+    h1 .symbol::after {
+      content: "";
+      position: absolute;
+      right: -14px;
+      top: -6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--sand);
     }
 
     .lead {
       color: var(--muted);
-      font-size: 17px;
-      max-width: 620px;
-      margin-bottom: 18px;
+      font-size: 18px;
+      max-width: 720px;
+      margin: 2px 0 10px;
+      line-height: 1.55;
     }
 
-    .cta {
+    .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
     }
 
     .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 12px 16px;
       border-radius: 12px;
-      border: 1px solid var(--border);
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+      border: 1px solid var(--line);
+      color: #0b0a08;
+      background: linear-gradient(130deg, var(--accent), var(--accent-2));
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      overflow: hidden;
       text-decoration: none;
-      color: #041016;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 12px 30px rgba(92, 243, 208, 0.25);
+      box-shadow: 0 16px 40px rgba(244, 124, 84, 0.22);
     }
 
     .btn.secondary {
       background: transparent;
-      color: var(--text);
-      border-color: rgba(255, 255, 255, 0.3);
+      color: var(--sand);
       box-shadow: none;
+      border-color: rgba(255, 255, 255, 0.18);
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      opacity: 0.95;
-    }
-
-    .profile-card {
-      background: var(--panel-strong);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      display: grid;
-      grid-template-columns: 120px 1fr;
+    .btn .marquee {
+      position: absolute;
+      inset: 0;
+      display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 24px;
+      width: 200%;
+      padding-left: 16px;
+      animation: marquee 14s linear infinite;
+      opacity: 0;
+      transition: opacity 160ms ease;
+      pointer-events: none;
     }
 
-    .profile-card img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      object-position: center 20%;
-      border-radius: 16px;
-      border: 2px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    .btn:hover .marquee { opacity: 1; }
+    .btn:hover .label { opacity: 0; }
+
+    .btn .label { transition: opacity 140ms ease; }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    .badge-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .badge {
-      padding: 8px 12px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid var(--border);
-      color: #fff;
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: 0.2px;
-    }
-
-    section {
-      margin: 26px 0;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: 26px;
-      letter-spacing: -0.02em;
-    }
-
-    .section-sub {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
+    .hero-side {
       position: relative;
-      overflow: hidden;
-      transition: transform 180ms ease, border-color 180ms ease;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+      align-items: start;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.25);
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      width: fit-content;
     }
 
-    .metric {
-      font-size: 32px;
-      font-weight: 700;
-      color: #fff;
+    .star {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle, rgba(124, 240, 209, 0.35), transparent 65%);
+      border-radius: 50%;
     }
 
-    .muted {
+    .availability .label {
+      display: flex;
+      flex-direction: column;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
       color: var(--muted);
+    }
+
+    .availability .label strong {
+      color: var(--sand);
       font-size: 14px;
     }
 
-    .project-title {
-      margin: 6px 0;
-      font-size: 18px;
+    .portrait {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(130deg, rgba(244, 124, 84, 0.28), rgba(124, 240, 209, 0.28));
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: 14px;
+      overflow: hidden;
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08), transparent 45%);
+      pointer-events: none;
+    }
+
+    .portrait img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      object-position: center 12%;
+      border-radius: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.5);
     }
 
     .tags {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .tag {
-      padding: 6px 10px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid var(--border);
-      font-size: 12px;
-      font-weight: 600;
-      color: #f6f9ff;
-    }
-
-    .card a {
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .card a:hover { text-decoration: underline; }
-
-    .experience {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 14px;
-    }
-
-    .timeline {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05);
       margin-top: 6px;
     }
 
-    .contact {
-      padding: 20px;
-      background: linear-gradient(135deg, rgba(124, 240, 209, 0.16), rgba(94, 163, 255, 0.16));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 18px;
-      align-items: center;
+    .tag {
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
     }
 
-    .contact-links {
+    .section {
+      margin-top: 32px;
+      padding: 32px 0 0;
+    }
+
+    .section-title {
       display: flex;
-      gap: 10px;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-title .small-star {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+
+    .section-title .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 0 0 4px;
+      font-size: 26px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .intro .copy {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .intro .copy h2 {
+      font-family: "Cormorant Garamond", "Manrope", serif;
+      font-size: 28px;
+      letter-spacing: 0.08em;
+    }
+
+    .intro .copy p {
+      color: var(--muted);
+      margin: 10px 0;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .canvas {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      min-height: 320px;
+      background: linear-gradient(145deg, rgba(244, 124, 84, 0.14), rgba(124, 240, 209, 0.14));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .canvas::before,
+    .canvas::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(24px);
+      opacity: 0.6;
+    }
+
+    .canvas::before {
+      width: 320px;
+      height: 320px;
+      background: rgba(124, 240, 209, 0.3);
+      top: -80px;
+      right: -120px;
+    }
+
+    .canvas::after {
+      width: 260px;
+      height: 260px;
+      background: rgba(244, 124, 84, 0.3);
+      bottom: -60px;
+      left: -60px;
+    }
+
+    .canvas-note {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #0d0c0b;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 16px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .cases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .case {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel);
+      min-height: 220px;
+      box-shadow: var(--shadow);
+    }
+
+    .case:nth-child(even) {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .case-copy {
+      padding: 18px 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .case h3 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .case .meta {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .case p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .case-visual {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-visual::before {
+      content: attr(data-label);
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .case-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1), transparent 50%);
+    }
+
+    .case-visual .block {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      background: linear-gradient(140deg, rgba(244, 124, 84, 0.28), rgba(124, 240, 209, 0.28));
+      display: grid;
+      place-items: center;
+      color: #0d0c0b;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+
+    .footer-panel {
+      margin-top: 32px;
+      padding: 32px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .footer-panel h3 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-panel p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 10px 0 16px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 16px 0 12px;
+    }
+
+    .service-btn {
+      position: relative;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--sand);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .service-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .service-btn .marquee {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-left: 12px;
+      width: 210%;
+      animation: marquee 12s linear infinite;
+      opacity: 0;
+      transition: opacity 160ms ease;
+      pointer-events: none;
+    }
+
+    .service-btn:hover .marquee { opacity: 1; }
+    .service-btn:hover .label { opacity: 0; }
+
+    footer {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    footer {
-      margin-top: 24px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .fade-in {
-      animation: fadeIn 700ms ease forwards;
-      opacity: 0;
-    }
-
-    .fade-in.delay { animation-delay: 120ms; }
-    .fade-in.delay-2 { animation-delay: 240ms; }
-    .fade-in.delay-3 { animation-delay: 360ms; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    footer a {
+      text-decoration: none;
+      color: var(--sand);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      font-size: 12px;
     }
 
     @media (max-width: 900px) {
-      header {
+      body { padding: 18px; }
+      .nav { grid-template-columns: 1fr; }
+      .nav-links { justify-content: flex-start; }
+      .hero {
         grid-template-columns: 1fr;
       }
-      nav {
-        position: static;
-      }
-      .contact {
-        grid-template-columns: 1fr;
-      }
-      .profile-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-        justify-items: center;
-      }
-      .profile-card img { margin-bottom: 8px; }
+      .cases { grid-template-columns: 1fr; }
+      .case, .case:nth-child(even) { grid-template-columns: 1fr; }
+      .intro { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <nav class="fade-in">
+  <div class="wrap">
+    <header class="nav">
       <div class="brand">
-        <span>DP</span> David Portillo · Software Engineer
-      </div>
-      <div class="links">
-        <a class="pill" href="#projects">Projects</a>
-        <a class="pill" href="#experience">Experience</a>
-        <a class="pill" href="https://docs.google.com/document/d/1SVSvc70tczb9JsUhGezuJ68DlEvuM_DgTbucKbuxvsU/export?format=pdf" target="_blank" rel="noopener">Resume</a>
-        <a class="pill" href="mailto:anicetod03@gmail.com">Contact</a>
-      </div>
-    </nav>
-
-    <header>
-      <div class="hero fade-in delay">
-        <div class="eyebrow">Data-Driven • Full-Stack • AI</div>
-        <h1>Building reliable software that ships and scales.</h1>
-        <p class="lead">
-          I design, prototype, and ship data-first products across Python, JavaScript, and modern cloud stacks. From training ML models to crafting resilient backend APIs and polished front-end experiences, I deliver clean code with measurable impact.
-        </p>
-        <div class="cta">
-          <a class="btn" href="https://github.com/davidportillo26" target="_blank" rel="noopener">View GitHub</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/david-portillo26/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn secondary" href="https://docs.google.com/document/d/1SVSvc70tczb9JsUhGezuJ68DlEvuM_DgTbucKbuxvsU/export?format=pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+        <div class="stamp">DP</div>
+        <div class="brand-stack">
+          <a href="#hero">David Portillo</a>
+          <span>Software engineer & designer</span>
         </div>
       </div>
-
-      <div class="profile-card fade-in delay-2">
-        <img src="profile.jpg" alt="David Portillo profile photo" />
-        <div>
-          <div class="badge-list">
-            <div class="badge">Data Science & ML</div>
-            <div class="badge">Full-Stack Engineering</div>
-            <div class="badge">System Design</div>
-            <div class="badge">Mentorship & Collaboration</div>
-          </div>
-          <p class="muted" style="margin-top: 14px;">
-            Comfortable across notebooks, APIs, and production services. I value thoughtful architecture, quality tests, and shipping with purpose.
-          </p>
-        </div>
+      <div class="nav-links">
+        <a class="pill" href="#cases">Works</a>
+        <a class="pill" href="#intro">About</a>
+        <a class="pill" href="#footer">Contact</a>
+      </div>
+      <div class="progress" aria-hidden="true">
+        <span id="scroll-progress"></span>
       </div>
     </header>
 
-    <section class="fade-in delay-2">
-      <div class="section-header">
-        <h2>Impact Snapshots</h2>
-        <span class="section-sub">Metrics that reflect how I work.</span>
+    <section id="hero" class="panel hero">
+      <div class="hero-content">
+        <div class="topline">creative technologist</div>
+        <h1>Designer <span class="symbol"></span> Engineer</h1>
+        <p class="lead">
+          I build bold, data-driven products that feel intentional. From ML-backed systems to full-stack web experiences,
+          I move from concept to production with obsessive attention to detail and measurable impact.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="mailto:anicetod03@gmail.com">
+            <span class="label">Contact me</span>
+            <span class="marquee">Contact me • Contact me • Contact me • Contact me •</span>
+          </a>
+          <a class="btn secondary" href="https://docs.google.com/document/d/1SVSvc70tczb9JsUhGezuJ68DlEvuM_DgTbucKbuxvsU/export?format=pdf" target="_blank" rel="noopener">
+            Resume
+          </a>
+          <a class="btn secondary" href="https://github.com/davidportillo26" target="_blank" rel="noopener">
+            GitHub
+          </a>
+        </div>
       </div>
-      <div class="grid">
-        <div class="card">
-          <div class="metric">25k+</div>
-          <div class="muted">monthly queries handled by ML-backed QA systems without downtime.</div>
+
+      <div class="hero-side">
+        <div class="availability">
+          <div class="star" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="38" height="38" fill="none" aria-hidden="true">
+              <path d="M32 4l6.2 16.3L55 22l-12.5 11L46.4 52 32 42.5 17.6 52l4-19L9 22l16.8-1.7L32 4z" fill="none" stroke="#f3dbc7" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="label">
+            <strong>Now booking</strong>
+            <span>Available for select collabs</span>
+          </div>
         </div>
-        <div class="card">
-          <div class="metric">40%</div>
-          <div class="muted">training time reduction via Bayesian optimization and early-stopping pipelines.</div>
+        <div class="portrait">
+          <img src="profile.jpg" alt="Portrait of David Portillo" />
         </div>
-        <div class="card">
-          <div class="metric">0 → 1</div>
-          <div class="muted">built greenfield auth, dashboards, and analytics from prototype to production.</div>
+        <div class="tags">
+          <div class="tag">Data & AI</div>
+          <div class="tag">Full-Stack</div>
+          <div class="tag">Product Systems</div>
+          <div class="tag">Mentorship</div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="fade-in delay-3">
-      <div class="section-header">
-        <h2>Selected Projects</h2>
-        <span class="section-sub">Hands-on builds showcasing depth and polish.</span>
+    <section id="intro" class="section intro">
+      <div class="copy">
+        <div class="section-title">
+          <div class="small-star">
+            <svg viewBox="0 0 64 64" width="28" height="28" fill="none" aria-hidden="true">
+              <path d="M32 6l5.4 14.7L53 22.9l-10.6 9.5 2.6 14.6L32 39.3 19 47l2.6-14.6L11 22.9l15.6-2.2L32 6z" fill="none" stroke="#f3dbc7" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="kicker">Hello, I am David</div>
+        </div>
+        <h2>Design-forward engineering</h2>
+        <p>
+          I thrive where aesthetics, systems thinking, and rigorous engineering meet. My toolkit spans Python, TypeScript, modern
+          web frameworks, and ML workflows — all pointed at crafting reliable, expressive products.
+        </p>
+        <p>
+          I partner with teams to prototype quickly, validate with data, and ship with quality. I care about thoughtful
+          architecture, performance, and clear communication that keeps everyone aligned.
+        </p>
       </div>
-      <div class="grid">
-        <div class="card">
-          <div class="project-title">MNIST Bayesian Optimization</div>
-          <p class="muted">
-            Tuned convolutional networks with GPyOpt, early stopping, and checkpointing. Automated convergence plots and produced reproducible training artifacts.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">GPyOpt</span><span class="tag">PyTorch</span><span class="tag">MLOps</span>
-          </div>
-          <p style="margin-top: 12px;">
-            <a href="https://github.com/DavidPortillo26/atlas-machine_learning/blob/main/unsupervised_learning/hyperparameter_tuning/README.md" target="_blank" rel="noopener">View README →</a>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="project-title">QA-Bot</div>
-          <p class="muted">
-            Built a semantic search pipeline with BERT embeddings and dynamic context retrieval. Balances precision/recall for long-form answers across docs.
-          </p>
-          <div class="tags">
-            <span class="tag">NLP</span><span class="tag">BERT</span><span class="tag">Semantic Search</span><span class="tag">Python</span>
-          </div>
-          <p style="margin-top: 12px;">
-            <a href="https://github.com/DavidPortillo26/atlas-machine_learning/blob/main/supervised_learning/qa_bot/README.md" target="_blank" rel="noopener">View README →</a>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="project-title">Full Stack Auth App</div>
-          <p class="muted">
-            End-to-end auth flow with JWT, secure password handling, protected routes, and responsive UI. Designed for quick deployment and onboarding.
-          </p>
-          <div class="tags">
-            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">JWT</span><span class="tag">REST</span>
-          </div>
-          <p style="margin-top: 12px;">
-            <a href="https://github.com/davidportillo26/fullstack-auth-app#readme" target="_blank" rel="noopener">View README →</a>
-          </p>
-        </div>
+      <div class="canvas">
+        <div class="canvas-note">Intentional builds only</div>
       </div>
     </section>
 
-    <section id="experience" class="fade-in delay-3">
-      <div class="section-header">
-        <h2>Experience</h2>
-        <span class="section-sub">Where I apply rigor and ship outcomes.</span>
+    <section class="section">
+      <div class="section-title">
+        <div class="small-star">
+          <svg viewBox="0 0 64 64" width="28" height="28" fill="none" aria-hidden="true">
+            <path d="M32 6l5.4 14.7L53 22.9l-10.6 9.5 2.6 14.6L32 39.3 19 47l2.6-14.6L11 22.9l15.6-2.2L32 6z" fill="none" stroke="#f3dbc7" stroke-width="2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="kicker">Selected cases</div>
+          <h2 id="cases">Recent work with a brutalist twist</h2>
+        </div>
       </div>
-      <div class="experience">
-        <div class="card timeline">
-          <div class="dot"></div>
-          <div>
-            <div class="project-title">Data & AI Projects</div>
-            <div class="muted">Bayesian optimization, MLOps pipelines, model evaluation, semantic search, and NLP experimentation.</div>
+      <div class="cases">
+        <article class="case">
+          <div class="case-copy">
+            <div class="meta">UX/UI · ML Engineering</div>
+            <h3>MNIST Bayesian Optimization</h3>
+            <p>Convolutional models tuned with Bayesian optimization, automated early-stopping, and reproducible reports for stakeholders.</p>
           </div>
-        </div>
-        <div class="card timeline">
-          <div class="dot"></div>
-          <div>
-            <div class="project-title">Full-Stack Delivery</div>
-            <div class="muted">React + Node stacks, secure auth flows, RESTful services, and CI/CD with strong observability practices.</div>
+          <div class="case-visual" data-label="Python · PyTorch">
+            <div class="block">Model tuning</div>
           </div>
-        </div>
-        <div class="card timeline">
-          <div class="dot"></div>
-          <div>
-            <div class="project-title">Collaboration & Leadership</div>
-            <div class="muted">Technical documentation, mentorship, backlog grooming, and pairing to keep teams aligned and shipping fast.</div>
+        </article>
+
+        <article class="case">
+          <div class="case-copy">
+            <div class="meta">NLP · Systems</div>
+            <h3>QA-Bot</h3>
+            <p>Semantic search pipeline with BERT embeddings, context ranking, and latency-aware API layers for reliable answers.</p>
           </div>
-        </div>
+          <div class="case-visual" data-label="BERT · Retrieval">
+            <div class="block">Answer engine</div>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-copy">
+            <div class="meta">Full-stack · Auth</div>
+            <h3>Secure Auth Platform</h3>
+            <p>JWT-based authentication with role-aware dashboards, polished onboarding, and hardened API gateways ready for production.</p>
+          </div>
+          <div class="case-visual" data-label="React · Node">
+            <div class="block">Product build</div>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-copy">
+            <div class="meta">Data · Observability</div>
+            <h3>Impact snapshots</h3>
+            <p>Scaled ML-backed QA to 25k+ monthly queries, cut training time by 40%, and shipped 0→1 dashboards with tight instrumentation.</p>
+          </div>
+          <div class="case-visual" data-label="Metrics">
+            <div class="block">Signals</div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="contact fade-in delay-3">
-      <div>
-        <h2>Let’s build something great.</h2>
-        <p class="muted">Open to software engineering roles focused on data, AI, and full-stack product delivery.</p>
-      </div>
-      <div class="contact-links">
-        <a class="btn" href="mailto:anicetod03@gmail.com">Email Me</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/david-portillo26/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn secondary" href="https://github.com/davidportillo26" target="_blank" rel="noopener">GitHub</a>
+    <section id="footer" class="footer-panel">
+      <h3>Let's connect</h3>
+      <p>
+        Open to roles and collaborations across data platforms, AI-enabled products, and expressive interfaces.
+        Send a note and let's make something sharp together.
+      </p>
+      <div class="services">
+        <a class="service-btn" href="mailto:anicetod03@gmail.com?subject=Let%27s%20build%20something" aria-label="Email">
+          <span class="label">Email</span>
+          <span class="marquee">Email • Email • Email • Email • Email • Email •</span>
+        </a>
+        <a class="service-btn" href="https://www.linkedin.com/in/david-portillo26/" target="_blank" rel="noopener">
+          <span class="label">LinkedIn</span>
+          <span class="marquee">LinkedIn • LinkedIn • LinkedIn • LinkedIn •</span>
+        </a>
+        <a class="service-btn" href="https://github.com/davidportillo26" target="_blank" rel="noopener">
+          <span class="label">GitHub</span>
+          <span class="marquee">GitHub • GitHub • GitHub • GitHub •</span>
+        </a>
+        <a class="service-btn" href="https://docs.google.com/document/d/1SVSvc70tczb9JsUhGezuJ68DlEvuM_DgTbucKbuxvsU/export?format=pdf" target="_blank" rel="noopener">
+          <span class="label">Resume</span>
+          <span class="marquee">Resume • Resume • Resume • Resume •</span>
+        </a>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> David Portillo · Built with care.
+      <span>© <span id="year"></span> David Portillo</span>
+      <ul>
+        <li><a href="https://davidportillo26.github.io" target="_blank" rel="noopener">Portfolio</a></li>
+        <li><a href="https://v1.bepatrickdavid.com/" target="_blank" rel="noopener">Inspiration</a></li>
+      </ul>
     </footer>
   </div>
 
   <script>
-    // keep the copyright year current
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const progress = document.getElementById("scroll-progress");
+    const yearEl = document.getElementById("year");
+
+    const updateProgress = () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const value = height ? (scrollTop / height) * 100 : 0;
+      progress.style.width = value + "%";
+    };
+
+    window.addEventListener("scroll", updateProgress);
+    updateProgress();
+
+    yearEl.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
